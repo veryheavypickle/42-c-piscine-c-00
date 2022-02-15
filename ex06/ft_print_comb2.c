@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 17:31:31 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/02/15 21:49:17 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/02/15 21:51:17 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	print2num(int a, int b)
 	print_num(a);
 	ft_putchar(' ');
 	print_num(b);
-	if (a < 99)
+	if (a < 98)
 	{
 		write(1, ", ", 2);
 	}
