@@ -6,12 +6,11 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 17:31:31 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/02/15 21:51:17 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/02/15 21:59:09 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
 
 /*
 Fucking norminette doesn't let me comment where I want to
@@ -70,10 +69,4 @@ void	ft_print_comb2(void)
 		}
 		i++;
 	}
-}
-
-int	main(void)
-{
-	ft_print_comb2();
-	return (0);
 }
