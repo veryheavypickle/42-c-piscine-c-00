@@ -1,32 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_is_negative.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/14 17:38:54 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/02/15 17:20:25 by xcarroll         ###   ########.fr       */
+/*   Created: 2022/02/15 15:58:38 by xcarroll          #+#    #+#             */
+/*   Updated: 2022/02/15 17:29:01 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
 
-void	ft_putchar(char c);
+/*
+Fucking norminette doesn't let me comment where I want to
+*/
 
-void	ft_print_alphabet(void)
+void	print(char string[])
 {
-	char	alphabet;
+	int	i;
 
-	alphabet = 'a';
-	while (alphabet <= 'z')
+	i = 0;
+	while (string[i] != '\0' && i < 2147483647)
 	{
-		write(1, &alphabet, 1);
-		alphabet++;
+		write(1, &string[i], 1);
+		i++;
 	}
+}
+
+void	ft_is_negative(int i)
+{
+	if (i < 0)
+		print("N");
+	else
+		print("P");
 }
 
 int	main(void)
 {
-	ft_print_alphabet();
+	ft_is_negative(-69);
+	return (0);
 }
