@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 15:21:29 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/02/15 15:23:21 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/02/15 15:56:37 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_print_numbers(void)
 	char	alphabet;
 
 	alphabet = '0';
-	while (alphabet >= '9')
+	while (alphabet <= '9')
 	{
 		write(1, &alphabet, 1);
 		alphabet++;
