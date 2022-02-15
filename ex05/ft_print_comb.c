@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_negative.c                                   :+:      :+:    :+:   */
+/*   ft_print_comb.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/15 15:58:38 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/02/15 19:55:58 by xcarroll         ###   ########.fr       */
+/*   Created: 2022/02/15 17:31:31 by xcarroll          #+#    #+#             */
+/*   Updated: 2022/02/15 20:34:37 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,52 @@
 
 /*
 Fucking norminette doesn't let me comment where I want to
+My true love is Moulinette2, who sadly, by default, inherits
+Some of Moulinettes characteristics
 */
 
-void	print(char string[])
+void	print3num(char a, char b, char c)
+{
+	a = a + '0';
+	b = b + '0';
+	c = c + '0';
+	write(1, &a, 1);
+	write(1, &b, 1);
+	write(1, &c, 1);
+	if (a < '7')
+	{
+		write(1, ", ", 2);
+	}
+}
+
+void	ft_print_comb(void)
 {
 	int	i;
+	int	j;
+	int	k;
 
 	i = 0;
-	while (string[i] != '\0' && i < 2147483647)
+	while (i <= 7)
 	{
-		write(1, &string[i], 1);
+		j = 1;
+		while (j <= 8)
+		{
+			k = 2;
+			while (k <= 9)
+			{
+				if (i < j && j < k)
+				{
+					print3num(i, j, k);
+				}
+				k++;
+			}
+			j++;
+		}
 		i++;
 	}
 }
 
-void	ft_is_negative(int i)
+int	main(void)
 {
-	if (i < 0)
-		print("N");
-	else
-		print("P");
+	ft_print_comb();
 }
