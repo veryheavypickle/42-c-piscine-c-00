@@ -6,11 +6,12 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 17:31:31 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/02/15 21:05:23 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/02/15 21:49:17 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
 
 /*
 Fucking norminette doesn't let me comment where I want to
@@ -18,18 +19,32 @@ My true love is Moulinette2, who sadly, by default, inherits
 Some of Moulinettes characteristics
 */
 
-void	print2num(char a, char b)
-{
-	a = a + '0';
-	b = b + '0';
-	write(1, &a, 1);
-	write(1, &b, 1);
-	
-	if (a <= '9')
-	{
-		write(1, &a, 1);
-	}
+/* write(1, &c, 1); */
 
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	print_num(int num)
+{
+	if (num <= 9)
+	{
+		ft_putchar('0');
+		ft_putchar(num + '0');
+	}
+	else
+	{
+		ft_putchar(num / 10 + '0');
+		ft_putchar(num % 10 + '0');
+	}
+}
+
+void	print2num(int a, int b)
+{
+	print_num(a);
+	ft_putchar(' ');
+	print_num(b);
 	if (a < 99)
 	{
 		write(1, ", ", 2);
@@ -47,12 +62,18 @@ void	ft_print_comb2(void)
 		j = 1;
 		while (j <= 99)
 		{
-			if (i < j && j < k)
+			if (i < j)
 			{
-				print2num(i, j, k);
+				print2num(i, j);
 			}
 			j++;
 		}
 		i++;
 	}
+}
+
+int	main(void)
+{
+	ft_print_comb2();
+	return (0);
 }
