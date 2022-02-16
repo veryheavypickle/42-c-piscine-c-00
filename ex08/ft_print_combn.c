@@ -6,11 +6,12 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 17:34:47 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/02/16 18:50:11 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/02/16 20:55:12 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
 
 /*
 ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
@@ -35,6 +36,7 @@
 
 void	ft_putchar(char c)
 {
+	c += '0';
 	write(1, &c, 1);
 }
 
@@ -54,47 +56,28 @@ void	print_x_num(int x)
 {
 	int	num_array[10];
 	int	i;
-	int	j;
 
+	num_array[0] = -1;
 	i = 0;
 	while (i < x)
 	{
-		num_array[i] = i;
+		num_array[i + 1] = i;
 		i++;
 	}
 	i = 0;
-	while (i < 10)
+	while (i < num_array[i])
 	{
-		j = 0;
-		while (j < x)
-		{
-			ft_putchar(num_array[i] + '0');
-			num_array[i] += 1;
-			j++;
-		}
-		i++;
+		if (num_array[i - 1] < num_array[i])
+			ft_putchar(num_array[i]);
 	}
 }
 
 void	ft_print_combn(int n)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i <= n * n)
-	{
-		j = 0;
-		while (j < n)
-		{
-			print_x_num(n);
-			j++;
-		}
-		i++;
-	}
+	print_x_num(n);
 }
 
 int	main(void)
 {
-	ft_print_combn(1);
+	ft_print_combn(2);
 }
