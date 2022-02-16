@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 21:53:35 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/02/16 15:01:56 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/02/16 15:02:12 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,4 @@ void	ft_putnbr(int nb)
 		ft_putnbr(nb / 10);
 		ft_putnbr(nb % 10);
 	}
-}
-
-int	main(void)
-{
-	ft_putnbr(-2147483648);
 }
