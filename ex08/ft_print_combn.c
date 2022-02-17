@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 17:34:47 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/02/17 15:27:36 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/02/17 15:46:18 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,12 @@ First if will return true if every number in numbers is smaller
 Than the number after it.
 */
 
+void	ft_putchar(char c)
+{
+	c += '0';
+	write(1, &c, 1);
+}
+
 int	array_is_printable(int numbers[], int n)
 {
 	int	bool_printable;
@@ -87,12 +93,12 @@ void	print_array(int numbers[], int n)
 	{
 		while (counter < n)
 		{
-			write(1, numbers[counter], 1);
+			ft_putchar(numbers[counter]);
 			counter++;
 		}
 		if (numbers[0] != 10 - n)
 		{
-			write(1, ", ", 1);
+			write(1, ", ", 2);
 		}
 	}
 }
