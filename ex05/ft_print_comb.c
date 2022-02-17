@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 17:31:31 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/02/15 20:34:37 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/02/17 15:25:02 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,4 @@ void	ft_print_comb(void)
 		}
 		i++;
 	}
-}
-
-int	main(void)
-{
-	ft_print_comb();
 }

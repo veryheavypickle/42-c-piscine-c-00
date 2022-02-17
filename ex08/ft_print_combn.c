@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 17:34:47 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/02/16 21:03:14 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/02/17 15:27:36 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,50 +34,99 @@
 	want.
 */
 
-void	ft_putchar(char c)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/15 17:31:31 by xcarroll          #+#    #+#             */
+/*   Updated: 2022/02/17 15:21:49 by xcarroll         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <unistd.h>
+
+/*
+Bool
+1 == True
+0 == False
+
+First if will return true if every number in numbers is smaller
+Than the number after it.
+*/
+
+int	array_is_printable(int numbers[], int n)
 {
-	c += '0';
-	write(1, &c, 1);
+	int	bool_printable;
+	int	counter;
+
+	bool_printable = 1;
+	counter = 1;
+	if (n > 1)
+	{
+		while (counter < n)
+		{
+			if (numbers[counter - 1] >= numbers[counter])
+			{
+				bool_printable = 0;
+			}
+			counter++;
+		}
+	}
+	return (bool_printable);
 }
 
-void	print(char string[])
+void	print_array(int numbers[], int n)
 {
-	int	i;
+	int	counter;
 
-	i = 0;
-	while (string[i] != '\0' && i < 2147483647)
+	counter = 0;
+	if (array_is_printable(numbers, n))
 	{
-		write(1, &string[i], 1);
-		i++;
+		while (counter < n)
+		{
+			write(1, numbers[counter], 1);
+			counter++;
+		}
+		if (numbers[0] != 10 - n)
+		{
+			write(1, ", ", 1);
+		}
 	}
 }
 
-void	print_x_num(int x)
+void	looping(int numbers[], int level, int n)
 {
-	int	num_array[10];
-	int	i;
+	int	counter;
 
-	num_array[0] = -1;
-	i = 0;
-	while (i < x)
+	counter = level;
+	while (counter < 10)
 	{
-		num_array[i + 1] = i;
-		i++;
-	}
-	i = 0;
-	while (i < num_array[i])
-	{
-		if (num_array[i - 1] < num_array[i])
-			ft_putchar(num_array[i]);
+		numbers[level] = counter;
+		if (level == n - 1)
+		{
+			print_array(numbers, n);
+		}
+		else
+		{
+			looping(numbers, level + 1, n);
+		}
+		counter++;
 	}
 }
 
 void	ft_print_combn(int n)
 {
-	print_x_num(n);
-}
+	int	numbers[10];
+	int	counter;
 
-int	main(void)
-{
-	ft_print_combn(2);
+	counter = 0;
+	while (counter < n)
+	{
+		numbers[counter] = counter;
+		counter++;
+	}
+	looping(numbers, 0, n);
 }
